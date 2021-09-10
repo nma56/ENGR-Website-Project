@@ -1,0 +1,135 @@
+﻿<!DOCTYPE h4ml>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Contact Us</title>
+    <script type="text/javascript">
+		function Display() {
+			var yourIssue = document.getElementById("textbox").value;
+			var chooseEmail = document.getElementById("choose").value;
+			var enterMessage = document.getElementById("entermessage").value;
+			var yourDay = document.getElementById("yourday").value;
+			var yourGrade = document.getElementsByName("grade");
+			var yourDorm = document.getElementsByName("dorm");
+
+
+
+		document.getElementById("output1").innerHTML = yourIssue;
+		document.getElementById("output2").innerHTML = chooseEmail;
+		document.getElementById("output3").innerHTML = enterMessage;
+		document.getElementById("output4").innerHTML = yourDay;
+
+		var result = "";
+		var j = 0;
+		var maxOptions = yourDorm.length;
+		var flag = 0;
+
+		while(j < maxOptions) {
+			if (yourDorm[j].checked == true && flag == 0){
+				result = [result + yourDorm[j].value];
+				flag = 1;
+			}
+			else if (yourDorm[j].checked == true && flag == 1){
+					result = [result + yourDorm[j].value];
+			}
+			j = j + 1 ;
+			document.getElementById("output6").innerHTML = result;
+		}
+
+		var k = 0;
+		var maxChoices = yourGrade.length;
+		while(k < maxChoices) {
+			if (yourGrade[k].checked == true) {
+					document.getElementById("output5").innerHTML = yourGrade[k].value;
+			}
+			k = k + 1
+		}
+
+
+
+
+
+		}
+    </script>
+
+</head>
+<body bgcolor="lightblue">
+    <!-- Not part of the instructions, but the page looked
+    ugly tbh, so I added some stuff -->
+    <h2 align="center"><font color="forestgreen" face="comic sans ms">Contact Us</font></h2>
+    <hr width="40%" color="forestgreen" align="center" size="5" />
+    <br />
+    <form action="mailto:nma56@pitt.edu?SUBJECT=Form info" method="post" enctype="text/plain">
+        <p>
+
+            <input type="text" name="Issue" value="What's your issue?" id="textbox" />
+            <br />
+
+
+            <select name="Favorite owner" id="choose">
+                <option>Who's your favorite owner?</option>
+                <option>Amechi Oruwari</option>
+                <option>Ari Amar</option>
+                <option>Natalie Albinger</option>
+                <option>None</option>
+            </select>
+            <br />
+            <br />
+            <textarea rows="5" cols="25" name="Message" id="entermessage">Don't be shy, write a message
+		</textarea>
+            <br />
+            <select name="How your day is going" id="yourday">
+                <option>How's your day going?</option>
+                <option>Pretty good</option>
+                <option>Alright</option>
+                <option>Not great</option>
+                <option>Ughhhhhhhhhhhhhhhhhh</option>
+            </select>
+            <br />
+            <br />
+
+        <p>What year of school are you in?</p>
+        <input type="radio" name="grade" value="Freshman" />Freshman
+        <br />
+        <input type="radio" name="grade" id="grade1" value="Sophomore" />Sophomore
+        <br />
+        <input type="radio" name="grade" id="grade2" value="Junior" />Junior
+        <br />
+        <input type="radio" name="grade" id="grade3" value="Senior" />Senior
+        <br />
+        <input type="radio" name="grade" id="grade4" value="Other" />Other
+
+        <br />
+        <br />
+        <p>What dorm do you live in?</p>
+        <input type="checkbox" name="dorm" id="dorm1" value="Forbes" checked />Forbes
+        <br />
+        <input type="checkbox" name="dorm" id="dorm2" value="Nordenberg" />Nordenberg
+        <br />
+        <input type="checkbox" name="dorm" id="dorm3" value="Towers" />Towers
+        <br />
+        <input type="checkbox" name="dorm" id="dorm4" value="Sutherland" />Sutherland
+        <br />
+        <input type="checkbox" name="dorm" id="dorm5" value="How unfortunate" />Holland
+
+        </p>
+        <p>
+            <input type="submit" name="submitbutton" id="submit" onclick="Display()" />
+
+            <input type="reset" name="resetbutton" id="resub" />
+        </p>
+    </form>
+    <p align="center">
+        Issue: <span id="output1"> </span>
+        </br> Fav Owner: <span id="output2"> </span>
+        </br> Message: <span id="output3"> </span>
+        </br> Your Day: <span id="output4"> </span>
+        </br> School Year: <span id="output5"> </span>
+        </br> Dorm: <span id="output6"> </span>
+    </p>
+
+
+
+</body>
+</html>
